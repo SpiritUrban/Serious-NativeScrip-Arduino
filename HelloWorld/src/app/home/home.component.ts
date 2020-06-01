@@ -1,23 +1,49 @@
 import { Component, OnInit } from "@angular/core";
 import { DatePicker } from "tns-core-modules/ui/date-picker";
+import { TNSTextToSpeech, SpeakOptions } from 'nativescript-texttospeech';
 
 @Component({
     selector: "Home",
     templateUrl: "./home.component.html"
 })
+
 export class HomeComponent implements OnInit {
 
     test: string = 'Test!!!'
-
-    constructor() {
-        // Use the component constructor to inject providers.
+    private TTS: any;
+    isSpeaking: boolean = false;
+    private speakOptions: SpeakOptions = {
+        text: 'Default text',
+        speakRate: 0.99,
+        pitch: 1.0, // optional - default is 1.0
+        volume: 1.1, // optional - default is 1.0
+        locale: 'en', // optional - default is system locale,
+        language: 'en',
+        finishedCallback: (() => {
+            alert('asdf2')
+            this.isSpeaking = false;
+        })
     }
 
-    ngOnInit(): void {
-        // Init your component properties here.
-        // alert('Hello!!!');
-        console.log('I can debug in console !!! Yahu!!!')
-        // console.log('I can debug in console !!! Yahu!!!')
+    constructor(
+        private tts: TNSTextToSpeech
+    ) {
+    }
+
+    speak(text: string) {
+        this.isSpeaking = true;
+        this.speakOptions.text = text;
+        this.tts.speak(this.speakOptions);
+    }
+
+    async ngOnInit() {
+        try {
+            await this.tts.speak(this.speakOptions);
+            setTimeout(()=>this.speak('Hello Wuasya !'), 2000)
+            console.log('I can debug in console !!! Yahu!!!')
+        } catch (error) {
+            alert('fail');
+        }
     }
 
     minDate: Date = new Date(1975, 0, 29);

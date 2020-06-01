@@ -4,6 +4,9 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
 
+import { TNSTextToSpeech } from 'nativescript-texttospeech';
+
+
 @NgModule({
     imports: [
         NativeScriptCommonModule,
@@ -14,6 +17,9 @@ import { HomeComponent } from "./home.component";
     ],
     schemas: [
         NO_ERRORS_SCHEMA
+    ],
+    providers:[
+        TNSTextToSpeech
     ]
 })
 export class HomeModule { }
