@@ -1,0 +1,7 @@
+For be able generate module:
+npm i -g @angular/cli@8.2.0
+npm i -g @nativescript/schematics
+
+Generate module:
+ng g module pages/speech-to-text --routing=true
+ng g component pages/speech-to-text --skipTests=true
