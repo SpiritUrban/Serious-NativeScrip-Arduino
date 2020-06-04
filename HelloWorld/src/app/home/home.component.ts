@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { DatePicker } from "tns-core-modules/ui/date-picker";
 import { TNSTextToSpeech, SpeakOptions } from 'nativescript-texttospeech';
+import { RouterExtensions } from "nativescript-angular/router";
+
 
 @Component({
     selector: "Home",
@@ -26,7 +28,9 @@ export class HomeComponent implements OnInit {
     }
 
     constructor(
-        private tts: TNSTextToSpeech
+        private tts: TNSTextToSpeech,
+    private routerExtensions: RouterExtensions
+
     ) {
     }
 
@@ -38,13 +42,29 @@ export class HomeComponent implements OnInit {
 
     async ngOnInit() {
         try {
-            await this.tts.speak(this.speakOptions);
-            setTimeout(()=>this.speak('Hello Wuasya !'), 2000)
+            // await this.tts.speak(this.speakOptions);
+            // setTimeout(()=>this.speak('Hello Wuasya !'), 2000)
             console.log('I can debug in console !!! Yahu!!!')
+            // this.goTo('test')
         } catch (error) {
             alert('fail');
         }
     }
+
+    goTo(page) {
+        console.log('......................')
+        this.routerExtensions.navigate(["/" + page],
+          {
+            clearHistory: true,
+            animated: true,
+            transition: {
+              name: 'flip',
+              duration: 2000,
+              curve: 'linear'
+            }
+          }
+        );
+      }
 
     minDate: Date = new Date(1975, 0, 29);
     maxDate: Date = new Date(2045, 4, 12);

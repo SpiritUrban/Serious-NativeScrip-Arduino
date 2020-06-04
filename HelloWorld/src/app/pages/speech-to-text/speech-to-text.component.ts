@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
   selector: 'ns-speech-to-text',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpeechToTextComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private routerExtensions: RouterExtensions
+  ) { }
 
   ngOnInit(): void {
+
   }
 
-}
+  goTo(page) {
+    console.log('......................')
+    this.routerExtensions.navigate(["/" + page],
+      {
+        clearHistory: true,
+        animated: true,
+        transition: {
+          name: 'flip',
+          duration: 2000,
+          curve: 'linear'
+        }
+      }
+    );
+  }
+
+  }

@@ -5,3 +5,6 @@ npm i -g @nativescript/schematics
 Generate module:
 ng g module pages/speech-to-text --routing=true
 ng g component pages/speech-to-text --skipTests=true
+
+Generate component (part):
+ng g c path/name --style=sass --skipTests=true

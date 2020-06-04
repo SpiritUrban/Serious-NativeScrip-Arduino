@@ -6,14 +6,19 @@ import { TestComponent } from "./test.component";
 
 import { TNSTextToSpeech } from 'nativescript-texttospeech';
 
+// import { NavComponent } from '../parts/nav/nav.component';
+import {PartsModule} from '../parts/parts.module'
+
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        TestRoutingModule
+        TestRoutingModule,
+        PartsModule
     ],
     declarations: [
-        TestComponent
+        TestComponent,
+        // NavComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
