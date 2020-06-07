@@ -9,6 +9,9 @@ import { TNSTextToSpeech, SpeakOptions } from 'nativescript-texttospeech';
 
 export class TestComponent implements OnInit {
 
+    public navCollapse: boolean;
+
+    
     test: string = 'Test!!!'
     private TTS: any;
     isSpeaking: boolean = false;
