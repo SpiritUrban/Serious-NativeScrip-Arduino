@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DatePicker } from "tns-core-modules/ui/date-picker";
-import { TNSTextToSpeech, SpeakOptions } from 'nativescript-texttospeech';
 import { RouterExtensions } from "nativescript-angular/router";
-
 
 @Component({
     selector: "Home",
@@ -12,43 +10,16 @@ import { RouterExtensions } from "nativescript-angular/router";
 export class HomeComponent implements OnInit {
 
     public navCollapse: boolean;
-
-    test: string = 'Test!!!'
-    private TTS: any;
-    isSpeaking: boolean = false;
-
-    stateFirst: boolean = false;
-
-    private speakOptions: SpeakOptions = {
-        text: 'Default text',
-        speakRate: 0.99,
-        pitch: 1.0, // optional - default is 1.0
-        volume: 1.1, // optional - default is 1.0
-        locale: 'en', // optional - default is system locale,
-        language: 'en',
-        finishedCallback: (() => {
-            alert('asdf2')
-            this.isSpeaking = false;
-        })
-    }
+    public test: string = 'Test!!!'
+    public stateFirst: boolean = false;
 
     constructor(
-        private tts: TNSTextToSpeech,
-    private routerExtensions: RouterExtensions
-
+        private routerExtensions: RouterExtensions
     ) {
-    }
-
-    speak(text: string) {
-        this.isSpeaking = true;
-        this.speakOptions.text = text;
-        this.tts.speak(this.speakOptions);
     }
 
     async ngOnInit() {
         try {
-            // await this.tts.speak(this.speakOptions);
-            // setTimeout(()=>this.speak('Hello Wuasya !'), 2000)
             console.log('I can debug in console !!! Yahu!!!')
             // this.goTo('test')
         } catch (error) {
@@ -56,11 +27,11 @@ export class HomeComponent implements OnInit {
         }
     }
 
-    toggleNav(){
+    toggleNav() {
         this.navCollapse = !this.navCollapse
     }
 
-    change(){
+    change() {
         this.stateFirst = !this.stateFirst;
         console.log('Change', this.stateFirst);
     }
@@ -68,17 +39,17 @@ export class HomeComponent implements OnInit {
     goTo(page) {
         console.log('......................')
         this.routerExtensions.navigate(["/" + page],
-          {
-            clearHistory: true,
-            animated: true,
-            transition: {
-              name: 'flip',
-              duration: 2000,
-              curve: 'linear'
+            {
+                clearHistory: true,
+                animated: true,
+                transition: {
+                    name: 'flip',
+                    duration: 2000,
+                    curve: 'linear'
+                }
             }
-          }
         );
-      }
+    }
 
     minDate: Date = new Date(1975, 0, 29);
     maxDate: Date = new Date(2045, 4, 12);

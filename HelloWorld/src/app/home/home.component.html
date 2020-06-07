@@ -15,44 +15,18 @@
 
     <ns-nav [collapse]="navCollapse"></ns-nav>
 
-    <!-- <Button dock="left" text="left" style="background-color: #0099CC; margin: 5; height: 100%;"></Button> -->
+    <Button dock="left" text="left" [class]="stateFirst ? 'view' : 'view2' " style="background-color: #0099CC; margin: 5; height: 100%;"></Button>
     <Button dock="right" text="right" style="background-color: #8C489F; margin: 5;"></Button>
-    <Button dock="bottom" text="bottom" style="background-color: #AA0078; margin: 5;"></Button>
-
-    <!-- <Button (tap)="change()"  dock="top" text="top" style="background-color: #B3B3D7; margin: 5;"></Button> -->
     <Button (tap)="change()" dock="top" text="top" style="background-color: #B3B3D7; margin: 5;"></Button> transition: 1s;
-    <Label [class]="stateFirst ? 'view' : 'view2' " text="Real Home "></Label>
-    <!-- <RadSideDrawer [drawerTransition]="sideDrawerTransition" tkExampleTitle tkToggleNavButton> -->
+    <DatePicker dock="bottom" year="1980" month="4" day="20" [minDate]="minDate" [maxDate]="maxDate" (dateChange)="onDateChanged($event)" (dayChange)="onDayChanged($event)" (monthChange)="onMonthChanged($event)" (yearChange)="onYearChanged($event)" (loaded)="onDatePickerLoaded($event)"
+        verticalAlignment="center">
+    </DatePicker>
 
-    <Button text="fill" style="background-color: #CCFFFF; margin: 5;"></Button>
-    <Button text="fill" style="background-color: #CCFFFF; margin: 5;"></Button>
-    <Button text="fill" style="background-color: #CCFFFF; margin: 5;"></Button>
-
-</DockLayout>
-
-
-<!-- <GridLayout> -->
-<!-- Add your page content here -->
-<!-- <Label text="TEST 123 {{test}} 1111!!!!!!!!!!!!!!!!" (tap)="speak('Whatever you like')"></Label> -->
-
-
-<!-- <AbsoluteLayout width="210" height="210" backgroundColor="lightgray">
+    <!-- <AbsoluteLayout width="210" height="210" backgroundColor="lightgray">
     <Label text="10, 10" left="10" top="10" width="90" height="90" backgroundColor="red"></Label>
     <Label text="110, 10" left="110" top="10" width="90" height="90" backgroundColor="green"></Label>
     <Label text="110, 110" left="110" top="110" width="90" height="90" backgroundColor="blue"></Label>
     <Label text="10, 110" left="10" top="110" width="90" height="90" backgroundColor="yellow"></Label>
-</AbsoluteLayout> -->
+    </AbsoluteLayout> -->
 
-
-
-<!-- <DatePicker year="1980" month="4" day="20"
-    [minDate]="minDate" [maxDate]="maxDate"
-    (dateChange)="onDateChanged($event)" 
-    (dayChange)="onDayChanged($event)" 
-    (monthChange)="onMonthChanged($event)" 
-    (yearChange)="onYearChanged($event)" 
-    (loaded)="onDatePickerLoaded($event)"
-    verticalAlignment="center">
-</DatePicker> -->
-
-<!-- </GridLayout> -->
+</DockLayout>
