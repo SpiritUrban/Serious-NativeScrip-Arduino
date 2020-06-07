@@ -1,15 +1,29 @@
 <ActionBar>
-    <Label text="Real Home "></Label>
+    <Label text=" "></Label>
+    <Button text="www" style="background-color: #8C489F; width: 10%; margin: 5;"></Button>
+
+    <FlexboxLayout alignItems="flex-start" width="100%" height="10%" backgroundColor="lightgray">
+        <Label (tap)="toggleNav()" order="3" text="NAV" width="70" height="70" backgroundColor="red"></Label>
+        <Label order="4" text="..." width="70" height="70" backgroundColor="green"></Label>
+        <Label order="2" text="..." width="70" height="70" backgroundColor="blue"></Label>
+        <Label order="1" text="Real Home" width="70" height="70" backgroundColor="orange"></Label>
+    </FlexboxLayout>
+
 </ActionBar>
 
 <DockLayout stretchLastChild="true">
 
-    <ns-nav></ns-nav>
+    <ns-nav [collapse]="navCollapse"></ns-nav>
 
     <!-- <Button dock="left" text="left" style="background-color: #0099CC; margin: 5; height: 100%;"></Button> -->
     <Button dock="right" text="right" style="background-color: #8C489F; margin: 5;"></Button>
     <Button dock="bottom" text="bottom" style="background-color: #AA0078; margin: 5;"></Button>
-    <Button dock="top" text="top" style="background-color: #B3B3D7; margin: 5;"></Button>
+
+    <!-- <Button (tap)="change()"  dock="top" text="top" style="background-color: #B3B3D7; margin: 5;"></Button> -->
+    <Button (tap)="change()" dock="top" text="top" style="background-color: #B3B3D7; margin: 5;"></Button> transition: 1s;
+    <Label [class]="stateFirst ? 'view' : 'view2' " text="Real Home "></Label>
+    <!-- <RadSideDrawer [drawerTransition]="sideDrawerTransition" tkExampleTitle tkToggleNavButton> -->
+
     <Button text="fill" style="background-color: #CCFFFF; margin: 5;"></Button>
     <Button text="fill" style="background-color: #CCFFFF; margin: 5;"></Button>
     <Button text="fill" style="background-color: #CCFFFF; margin: 5;"></Button>

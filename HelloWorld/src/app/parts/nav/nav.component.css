@@ -1,1 +1,34 @@
-/* Add mobile styles for the component here.  */
+@keyframes open {
+    from {
+        background-color: green;
+        width: 1px;
+    }
+    to {
+        background-color: red;
+        width: 300px;
+    }
+}
+
+@keyframes collapsed {
+    from {
+        background-color: red;
+        width: 300px;
+    }
+    to {
+        background-color: green;
+        width: 1px;
+    }
+}
+
+.open {
+    /* width: 30%; */
+    animation-name: open;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.collapsed {
+    animation-name: collapsed;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}

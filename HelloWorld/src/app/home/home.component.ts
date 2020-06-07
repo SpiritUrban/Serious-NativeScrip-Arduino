@@ -11,9 +11,14 @@ import { RouterExtensions } from "nativescript-angular/router";
 
 export class HomeComponent implements OnInit {
 
+    public navCollapse: boolean;
+
     test: string = 'Test!!!'
     private TTS: any;
     isSpeaking: boolean = false;
+
+    stateFirst: boolean = false;
+
     private speakOptions: SpeakOptions = {
         text: 'Default text',
         speakRate: 0.99,
@@ -49,6 +54,15 @@ export class HomeComponent implements OnInit {
         } catch (error) {
             alert('fail');
         }
+    }
+
+    toggleNav(){
+        this.navCollapse = !this.navCollapse
+    }
+
+    change(){
+        this.stateFirst = !this.stateFirst;
+        console.log('Change', this.stateFirst);
     }
 
     goTo(page) {
